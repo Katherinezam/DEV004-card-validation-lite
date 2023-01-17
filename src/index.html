@@ -4,12 +4,34 @@
 <head>
   <meta charset="utf-8">
   <title>Tarjeta de crédito válida 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-  <input id="cardnumber"></input>
-  <button onclick="validate()">Validar</button>
+
+  <header>
+    <h1> Hola, valida tu tarjeta</h1>
+    <nav></nav>
+  </header>
+  
+        
+  <script src="app.js"></script>
+  
+  <input id="cardnumber" type="number" placeholder="ingresa tu numero"></input>
+    <button type= "button" onclick="comunicarValidacion()">Validar</button>
+
   <div id="result"></div>
+
+  
+
+
+
+
+
+
+
+
   <script lang="javascript">
     function validate() {
       const valid = isValid(document.getElementById("cardnumber").value)
