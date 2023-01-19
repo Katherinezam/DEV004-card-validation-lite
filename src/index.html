@@ -11,43 +11,19 @@
 <body>
 
   <header>
-    <h1> Hola, valida tu tarjeta</h1>
+    <div>
+      <h1> Hola, valida tu tarjeta</h1>
+    </div>
+     
     <nav></nav>
   </header>
-  
-        
+
+<div>
+  <input id="cardnumber" type="number" placeholder="ingresa tu número"></input>
+  <button type= "button" onclick="comunicarValidacion()">Validar</button>
+</div>
+         
   <script src="app.js"></script>
-  
-  <input id="cardnumber" type="number" placeholder="ingresa tu numero"></input>
-    <button type= "button" onclick="comunicarValidacion()">Validar</button>
-
-  <div id="result"></div>
-
-  
-
-
-
-
-
-
-
-
-  <script lang="javascript">
-    function validate() {
-      const valid = isValid(document.getElementById("cardnumber").value)
-      if (valid) {
-        // Show success in div#result
-      }
-      else {
-        // Show error message in div#result
-      }
-    }
-
-    function isValid(creditCardNumber){
-      // is creditCardNumber valid?
-      return false
-    }
-  </script>
 </body>
 
 </html>

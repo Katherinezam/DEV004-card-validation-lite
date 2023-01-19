@@ -1,16 +1,11 @@
 
-// creo mi funcion con nombre comunicarValidacion.
+// creo mi funcion con nombre comunicarValidacion y mí variable iniciandola con numerosDeTarjeta.
 function comunicarValidacion() {
+    
+    let numerosDeTarjeta = document.getElementById("cardnumber").value
     /**
-     * creo mi variable numerosDeTarjeta donde iran almacenadose los numeros a ingresar en mi cuadro (input), 
-     * los cuales seran llamados del html atravez del metodo document.getElementById(nombre del id=carnumber)
-     * .value (en este caso .value serian los numeros que voy a ingresar en el cuadro delinput)
-     * tener presente que me piden que solo se ingrese numeros, por el cual en html, puse type="number", si no me permitiria ingresar tambien texto.
-     */
-    var numerosDeTarjeta = document.getElementById("cardnumber").value
-    /**
-     * Me indican que si el input esta vacio no debe validarse, por el cual puse mi condicional if
-     * donde indico que si mi variable donde voy almacenar mis numeros a ingresar son iguales a un string vacio, debe aparecerme
+     * Me indican que si el input esta vacio no debe validarse, por el cual puse mi condicional if,
+     *  indico que si mi variable donde voy almacenar mis numeros a ingresar son iguales a un string vacio, debe aparecerme
      * un alert el cual comunique "Por favor, ingrese un número de tarjeta"
      */
     if (numerosDeTarjeta === "") {
@@ -22,7 +17,7 @@ function comunicarValidacion() {
      * Como siguiente paso para validar los numeros de mi tarjeta debo seguir el algoritmo de Luhn, para ello he 
      * creado mi nueva variable numeroTarjetaNuevo donde almacenare los numeros nuevos de mi tarjeta en un array 
      */
-    var numeroTarjetaNuevo = []
+    let numeroTarjetaNuevo = []
 
     /** empezare con mi estructura con el bucle for, Un ciclo for se repite hasta que una condición especificada se evalúe como false
      * el aspecto de for ejecuta expresiónInicial,expresiónCondicional y instrucción.
@@ -33,7 +28,7 @@ function comunicarValidacion() {
      * seguira la instruccion mas uno y asi sucesivamente.---( .length devuelve el número de caracteres de una cadena)
     
      */
-    for (var i = 0; i < numerosDeTarjeta.length; i++) {
+    for (let i = 0; i < numerosDeTarjeta.length; i++) {
         /**
          *en el ejemplo me percate de que las posiciones resaltados eran multiplos de 2 (pares), 
          entonces a los numeros de esas posiciones resaltadas los multiplique por 2.
@@ -53,34 +48,33 @@ function comunicarValidacion() {
         }
     }
 
-    console.log("Numero modificados --> " + numeroTarjetaNuevo)
+    console.log("Resultado de números multiplicados x2 ---> " + numeroTarjetaNuevo)
 
 
 // creo una nueva variable donde se almacenaran los numeros sumados con dos digitos en un array nuevo.
-    var numeroTarjetaNuevoCalculado = []
+    let numeroTarjetaNuevoCalculado = []
 
-    for (var i = 0; i < numeroTarjetaNuevo.length; i++) {
+    for (let i = 0; i < numeroTarjetaNuevo.length; i++) {
 
         if (numeroTarjetaNuevo[i].toString().length == 2) {
             let num = numeroTarjetaNuevo[i].toString()  // '16' -> ['1','6']
             //  num[0] + num[1] = 16  por que es un array de string
             numeroTarjetaNuevoCalculado.push(Number(num[0]) + Number(num[1])) // 1 + 6 = 7
             //  console.log("Numero mayores de dos digitos-> " + numeroTarjetaNuevo[i])
-        } else (
-            numeroTarjetaNuevoCalculado.push(numeroTarjetaNuevo[i])
-        )
+        }               
+        else (numeroTarjetaNuevoCalculado.push(numeroTarjetaNuevo[i]))
 
     }
-
-    console.log("numeroTarjetaNuevoCalculado ->" + numeroTarjetaNuevoCalculado)
+   
+    console.log("Resultado de números con 2 dígitos ---> " + numeroTarjetaNuevoCalculado)
 
     // creo una nueva variable inicializandolo con 0, 
     let resultado = 0
     //nuevamente hago mi estrucura for
-    for (var i = 0; i < numeroTarjetaNuevoCalculado.length; i++) {
+    for (let i = 0; i < numeroTarjetaNuevoCalculado.length; i++) {
         resultado = resultado + numeroTarjetaNuevoCalculado[i]
     }
-    console.log(resultado)
+    console.log("Resultado final ---> " + resultado)
 // si el ultimo digito del resultado es 0, mi tarjeta sera valida, si no, no...lo mostrare mediante un alert.
 // todo numero dividido entre 10 me da como resto 0 y si en mi resultado final el ultimo digiton me da 0, es valido.
 
